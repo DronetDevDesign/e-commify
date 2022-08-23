@@ -22,6 +22,11 @@ POST: localhost:3001/api/categories/
 PUT: localhost:3001/api/categories/6
 DELETE: localhost:3001/api/categories/6
 
+DELETE: 
+{
+  "
+}
+
 
 
 User Story:

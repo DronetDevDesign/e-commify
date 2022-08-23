@@ -14,21 +14,12 @@ router.get('/', (req, res) => {
       'category_id',
     ],
     include: [
-      {
-        model: ProductTag,
-        attributes: [
-          'id',
-          'product_id',
-          'tag_id'
-        ]
-      },
-      {
-        model: Category,
-        attributes: ['category_name']
-      },
+      Category,
       {
         model: Tag,
-        attributes: ['tag_name']
+        attributes: ['tag_name'],
+        through: ProductTag,
+        // as: 'product_tags'
       }
     ]
   })
@@ -47,30 +38,31 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id
     },
-    attributes: [
-      'id',
-      'product_name',
-      'price',
-      'stock',
-      'category_id',
-    ],
+    // attributes: [
+    //   'id',
+    //   'product_name',
+    //   'price',
+    //   'stock',
+    //   'category_id',
+    // ],
     include: [
       {
-        model: ProductTag,
-        attributes: [
-          'id',
-          'product_id',
-          'tag_id'
-        ]
+        model: Tag,
+        through: ProductTag
+        // attributes: [
+        //   'id',
+        //   'product_id',
+        //   'tag_id'
+        // ]
       },
       {
         model: Category,
         attributes: ['category_name']
       },
-      {
-        model: Tag,
-        attributes: ['tag_name']
-      }
+      // {
+      //   model: Tag,
+      //   attributes: ['tag_name']
+      // }
     ]
   })
     .then(dbProductData => {

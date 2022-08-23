@@ -19,14 +19,8 @@ GET: localhost:3001/api/tags/1
 4) Show POST, PUT and DELETE routes for CATEGORIES being tested in Insomnia:
 Route examples:
 POST: localhost:3001/api/categories/
-PUT: localhost:3001/api/categories/6
-DELETE: localhost:3001/api/categories/6
-
-DELETE: 
-{
-  "
-}
-
+PUT: localhost:3001/api/categories/4
+DELETE: localhost:3001/api/categories/4
 
 
 User Story:
